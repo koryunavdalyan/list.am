@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<H1>Comments</H1>
+<a href="comments/add" >Create Comment</a>
+<table border="1px">
+<tr>
+    <th>id</th>
+    <th>comment</th>
+    <th>itemId</th>
+    <th>action</th>
+</tr>
+    <tr th:each="comment : ${comments}">
+    <td th:text="${comment.id}"></td>
+    <td th:text="${comment.comment}"></td>
+        <td><a th:href="@{/comments/remove(id=${comment.id})}">Remove</a> </td>
+    </tr>
+</table>
+</body>
+</html>
